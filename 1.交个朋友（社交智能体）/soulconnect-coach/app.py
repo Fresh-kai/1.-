@@ -23,25 +23,23 @@ st.set_page_config(
 
 # 加载自定义CSS
 def load_css():
+    """修复：更安全的CSS加载"""
     try:
-        # 尝试用 UTF-8 编码读取
-        with open("assets/style.css", "r", encoding="utf-8") as f:
-            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-    except UnicodeDecodeError:
-        # 如果 UTF-8 失败，尝试其他编码
-        try:
-            with open("assets/style.css", "r", encoding="gbk") as f:
-                st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-        except:
-            # 如果都失败，使用默认样式
-            st.markdown("""
-            <style>
-            .main-header { text-align: center; padding: 2rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px; margin-bottom: 2rem; }
-            .profile-card { background: #f8f9fa; border-radius: 10px; padding: 1.5rem; margin: 1rem 0; border-left: 4px solid #667eea; }
-            .advice-card { background: #e8f4fd; border-radius: 10px; padding: 1rem; margin: 0.5rem 0; border-left: 4px solid #2196F3; }
-            .icebreaker-example { background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 1rem; margin: 1rem 0; font-style: italic; }
-            </style>
-            """, unsafe_allow_html=True)
+        st.markdown("""
+        <style>
+        .companion-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        /* 简化其他样式，移除可能冲突的样式 */
+        </style>
+        """, unsafe_allow_html=True)
+    except Exception as e:
+        st.warning("样式加载遇到问题，但不影响功能使用")
 
 load_css()
 
@@ -366,3 +364,4 @@ if __name__ == "__main__":
     app = SoulConnectApp()
 
     app.run()
+
