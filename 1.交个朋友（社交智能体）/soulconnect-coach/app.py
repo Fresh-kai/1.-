@@ -359,9 +359,31 @@ class SoulConnectApp:
                 5. 查看分析报告，持续改进社交技能
                 """)
 
+class HeartCompanionApp:
+    def __init__(self):
+        try:
+            self.agent = EmotionalCompanionAgent()
+            self.profile_manager = UserProfileManager()
+            self.activity_recommender = ActivityRecommender()
+            self.initialize_session_state()
+        except Exception as e:
+            st.error(f"应用初始化失败: {str(e)}")
+            st.stop()
+    
+    def run(self):
+        """修复：添加错误处理的运行方法"""
+        try:
+            self.render_header()
+            # ... 其余代码保持不变
+        except Exception as e:
+            st.error("应用运行遇到问题，请刷新页面重试")
+            st.code(f"错误详情: {str(e)}")
+
+
 # 运行应用
 if __name__ == "__main__":
     app = SoulConnectApp()
 
     app.run()
+
 
