@@ -50,7 +50,7 @@ HTML_TEMPLATE = '''
         
         <div style="text-align: center;">
             <a href="https://huggingface.co/spaces/Fresh-k/1" class="btn">🚀 体验完整版应用</a>
-            <a href="https://github.com/1" class="btn">📁 查看源代码</a>
+            <a href="https://github.com/Fresh-k/1" class="btn">📁 查看源代码</a>
         </div>
         
         <div class="demo-section">
