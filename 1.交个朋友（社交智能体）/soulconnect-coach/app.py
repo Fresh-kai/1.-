@@ -52,19 +52,18 @@ class SoulConnectApp:
         self.initialize_session_state()
     
     def initialize_session_state(self):
-        """初始化会话状态"""
-        if 'conversation_history' not in st.session_state:
-            st.session_state.conversation_history = []
-        if 'current_target' not in st.session_state:
-            st.session_state.current_target = None
-        if 'analysis_result' not in st.session_state:
-            st.session_state.analysis_result = None
-        if 'user_progress' not in st.session_state:
-            st.session_state.user_progress = {
-                "conversations_started": 0,
-                "successful_icebreakers": 0,
-                "avg_conversation_length": 0
-            }
+    """修复：更安全的会话状态初始化"""
+    default_states = {
+        'messages': [],
+        'user_info_set': False,
+        'current_emotion': "未知",
+        'conversation_count': 0,
+        'last_reset': datetime.now().isoformat()
+    }
+    
+    for key, value in default_states.items():
+        if key not in st.session_state:
+            st.session_state[key] = value
     
     def render_header(self):
         """渲染页面头部"""
@@ -365,4 +364,5 @@ class SoulConnectApp:
 # 运行应用
 if __name__ == "__main__":
     app = SoulConnectApp()
+
     app.run()
