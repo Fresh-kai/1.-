@@ -5,62 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>破冰智友 - 智能社交破冰教练</title>
     <style>
-        /* 完整的CSS样式 */
-        body { font-family: system-ui, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; }
-        .header { text-align: center; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 4rem 2rem; border-radius: 15px; margin-bottom: 3rem; }
-        .demo-link { display: inline-block; background: #000; color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; margin: 10px; font-weight: bold; }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
-        .feature-card { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .demo-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .demo-link {
+            display: inline-flex;
+            align-items: center;
+            background: #000;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .demo-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .demo-link.huggingface {
+            background: linear-gradient(135deg, #ffd21e, #ff6b00);
+            color: black;
+        }
+        
+        .demo-link.github {
+            background: linear-gradient(135deg, #333, #000);
+            color: white;
+        }
+        
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9em;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .demo-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .demo-link {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1 style="font-size: 3em; margin: 0;">🤖 破冰智友</h1>
-        <p style="font-size: 1.5em; opacity: 0.9;">智能社交破冰教练 - 让每次对话都有温度</p>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 破冰智友</h1>
+            <p>智能社交破冰教练 - 让每次对话都有温度</p>
+            
+            <div class="demo-links">
+                <a href="https://huggingface.co/spaces/Fresh-kai/icebreaker-ai" class="demo-link huggingface">
+                    🚀 立即体验 AI 演示
+                </a>
+                <a href="https://github.com/Fresh-kai/icebreaker-ai" class="demo-link github">
+                    💻 查看源代码
+                </a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>🎯 项目简介</h2>
+            <p>《破冰智友》是一款基于人工智能技术的智能社交破冰教练应用，旨在帮助用户在社交场景中打破尴尬、建立自然温暖的人际连接。通过深度理解用户需求和场景特征，提供个性化的破冰建议和实时对话辅导。</p>
+            
+            <h2>✨ 核心功能</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🧠 智能用户分析</h3>
+                    <p>深度解析目标用户的资料、兴趣标签和动态内容，自动挖掘潜在的共同话题和聊天切入点。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💬 个性化破冰建议</h3>
+                    <p>根据用户资料生成多风格开场白，提供情境化的聊天话题和延伸方向。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎭 对话模拟训练</h3>
+                    <p>提供真实的社交场景模拟环境，在对话过程中获得实时反馈和改进建议。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 社交技能培养</h3>
+                    <p>追踪用户的社交进步轨迹，通过可视化图表展示各项社交技能水平。</p>
+                </div>
+            </div>
+
+            <h2>🛠️ 技术栈</h2>
+            <div class="tech-stack">
+                <div class="tech-item">Streamlit</div>
+                <div class="tech-item">Python</div>
+                <div class="tech-item">智谱GLM大模型</div>
+                <div class="tech-item">Hugging Face</div>
+                <div class="tech-item">GitHub</div>
+                <div class="tech-item">Vercel</div>
+            </div>
+
+            <h2>🚀 部署架构</h2>
+            <p>项目采用多平台部署策略，确保最佳的用户体验和开发效率：</p>
+            <ul style="margin: 1rem 0 1rem 2rem;">
+                <li><strong>GitHub</strong> - 代码版本控制和协作开发</li>
+                <li><strong>Hugging Face Spaces</strong> - AI应用部署和演示</li>
+                <li><strong>Vercel</strong> - 静态官网和项目展示</li>
+            </ul>
+        </div>
     </div>
 
-    <div style="text-align: center; margin: 3rem 0;">
-        <a href="https://huggingface.co/spaces/你的用户名/icebreaker-ai" class="demo-link" style="background: #ffd21e; color: black;">
-            🚀 立即体验 Demo
-        </a>
-        <a href="https://github.com/你的用户名/icebreaker-ai" class="demo-link">
-            📁 查看源代码
-        </a>
-    </div>
-
-    <h2>🎯 项目简介</h2>
-    <p>《破冰智友》是一款基于AI技术的智能社交破冰教练，通过深度理解用户需求和场景特征，提供个性化的破冰建议和实时对话辅导，帮助用户在社交场景中建立自然温暖的人际连接。</p>
-
-    <h2>✨ 核心功能</h2>
-    <div class="feature-grid">
-        <div class="feature-card">
-            <h3>🧠 智能分析</h3>
-            <p>深度解析用户资料，自动挖掘聊天切入点</p>
-        </div>
-        <div class="feature-card">
-            <h3>💬 破冰建议</h3>
-            <p>个性化开场白和话题延伸建议</p>
-        </div>
-        <div class="feature-card">
-            <h3>🎭 对话模拟</h3>
-            <p>真实场景的对话练习和实时反馈</p>
-        </div>
-        <div class="feature-card">
-            <h3>📈 成长追踪</h3>
-            <p>社交技能进步可视化和个性化训练</p>
-        </div>
-    </div>
-
-    <h2>🛠️ 技术栈</h2>
-    <ul>
-        <li><strong>前端框架</strong>: Streamlit</li>
-        <li><strong>AI服务</strong>: 智谱GLM大模型</li>
-        <li><strong>部署平台</strong>: Hugging Face Spaces + Vercel</li>
-        <li><strong>版本控制</strong>: GitHub</li>
-    </ul>
-
-    <footer style="text-align: center; margin-top: 4rem; padding: 2rem; border-top: 1px solid #eee; color: #666;">
+    <footer>
         <p>© 2025 破冰智友 - Soul App元创营高校AI Agent创新赛参赛作品</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">让科技赋能社交，让连接更有温度</p>
     </footer>
 </body>
 </html>
