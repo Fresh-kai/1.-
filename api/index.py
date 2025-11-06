@@ -49,8 +49,8 @@ HTML_TEMPLATE = '''
         </div>
         
         <div style="text-align: center;">
-            <a href="https://huggingface.co/spaces/你的用户名/heart-companion" class="btn">🚀 体验完整版应用</a>
-            <a href="https://github.com/你的用户名/heart-companion" class="btn">📁 查看源代码</a>
+            <a href="https://huggingface.co/spaces/Fresh-k/heart-companion" class="btn">🚀 体验完整版应用</a>
+            <a href="https://github.com/Fresh-k/heart-companion" class="btn">📁 查看源代码</a>
         </div>
         
         <div class="demo-section">
