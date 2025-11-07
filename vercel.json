@@ -1,15 +1,15 @@
+# 在项目根目录创建 vercel.json 配置文件
 {
-  "version": 2,
   "builds": [
     {
-      "src": "index.html",
-      "use": "@vercel/static"
+      "src": "app.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/app.py"
     }
   ]
 }
